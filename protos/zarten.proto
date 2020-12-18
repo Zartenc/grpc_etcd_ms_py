@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message ZartenRequest {
+  string zhihu_name = 1;
+}
+
+message ZartenResponse {
+  string name = 1;
+  string homepage = 2;
+}
+
+service Zarten{
+  rpc GetInfo (ZartenRequest) returns (ZartenResponse);
+}
