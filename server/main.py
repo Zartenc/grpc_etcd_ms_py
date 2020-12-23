@@ -30,6 +30,8 @@ def main(service_ip, service_port, etcd_ip, etcd_port, etcd_prefix):
     def signal_handler(*args):
         etcd_handle_serv.logout_service()
         event.set()
+
+    signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
     print("***serveice started")
